@@ -14,12 +14,6 @@
         "name": "Sprendlinger Landstr. 179 B, 63069 Offenbach am Main",
         "stock": 1,
         "is_pickup": true
-      },
-      {
-        "id": 3851,
-        "name": "Hauptstr. 34, 63303 Dreieich",
-        "stock": 1,
-        "is_pickup": false
       }
     ]
   },
@@ -36,12 +30,6 @@
       {
         "id": 852,
         "name": "Berger Str. 145, 60385 Frankfurt am Main",
-        "stock": 1,
-        "is_pickup": false
-      },
-      {
-        "id": 2313,
-        "name": "Kaiserstr. 58, 60329 Frankfurt am Main",
         "stock": 1,
         "is_pickup": false
       }
