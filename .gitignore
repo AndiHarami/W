@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+debug_*.html
+debug_*.png
+.env
+*.local

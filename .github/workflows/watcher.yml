@@ -1,0 +1,61 @@
+name: Rossmann Pokemon Watcher
+
+on:
+  schedule:
+    # Alle 5 Minuten. GitHub-Cron kann manchmal 5-15 Min verspätet starten.
+    - cron: "*/5 * * * *"
+  workflow_dispatch: # erlaubt manuellen Start über die UI
+
+permissions:
+  contents: write # damit der Job state.json committen kann
+
+# Wenn schon ein Lauf aktiv ist, neuen Lauf nicht parallel starten
+concurrency:
+  group: watcher
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-chromium-v1
+
+      - name: Install Chromium (only if not cached)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: playwright install --with-deps chromium
+
+      - name: Run watcher
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python watcher.py
+
+      - name: Commit state if changed
+        run: |
+          if [[ -n "$(git status --porcelain state.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add state.json
+            git commit -m "Update state $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          else
+            echo "Kein State-Update."
+          fi
