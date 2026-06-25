@@ -14,6 +14,12 @@
         "name": "Sprendlinger Landstr. 179 B, 63069 Offenbach am Main",
         "stock": 1,
         "is_pickup": true
+      },
+      {
+        "id": 3120,
+        "name": "Friedberger Anlage 1, 60314 Frankfurt am Main",
+        "stock": 1,
+        "is_pickup": true
       }
     ]
   },
