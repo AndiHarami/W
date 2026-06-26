@@ -13,12 +13,21 @@
         "id": 3607,
         "name": "Sprendlinger Landstr. 179 B, 63069 Offenbach am Main",
         "stock": 1,
+        "stock_plus": false,
         "is_pickup": true
       },
       {
         "id": 3120,
         "name": "Friedberger Anlage 1, 60314 Frankfurt am Main",
         "stock": 1,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 3189,
+        "name": "Senefelderstr. 30, 63322 Rödermark",
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": true
       }
     ]
@@ -37,6 +46,7 @@
         "id": 852,
         "name": "Berger Str. 145, 60385 Frankfurt am Main",
         "stock": 1,
+        "stock_plus": false,
         "is_pickup": false
       }
     ]
