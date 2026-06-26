@@ -153,6 +153,21 @@ def check_online(page: Page, url: str) -> dict:
     }
 
 
+def _truncate_lines(lines: list, max_chars: int) -> str:
+    """Discord-Embed-Field-Value max 1024 Zeichen. Trunkiert sauber."""
+    out = []
+    total = 0
+    for i, line in enumerate(lines):
+        # Reserve Platz für "_… und X weitere_"
+        suffix = f"\n_… und {len(lines) - i} weitere_"
+        if total + len(line) + 1 + len(suffix) > max_chars:
+            out.append(suffix.lstrip("\n"))
+            break
+        out.append(line)
+        total += len(line) + 1
+    return "\n".join(out)
+
+
 def _parse_stock(raw) -> tuple[int, bool]:
     """Rossmann-API gibt '5+' (= 5 oder mehr), '5', '0' usw. zurück.
     Returns (int, is_plus). Crashed nie."""
@@ -189,17 +204,16 @@ def check_stores(page: Page, dan: str, location: str) -> list:
 
     out = []
     for s in data.get("store", []):
-        for info in s.get("productInfo", []):
-            stock, is_plus = _parse_stock(info.get("stock"))
-            if stock > 0:
-                out.append({
-                    "id": s["id"],
-                    "name": f"{s['street']}, {s['postcode']} {s['city']}",
-                    "stock": stock,
-                    "stock_plus": is_plus,
-                    "is_pickup": s.get("pickupStation", False),
-                })
-                break
+        # nimm immer den ersten productInfo-Eintrag (es gibt eigentlich nur einen)
+        info = (s.get("productInfo") or [{}])[0]
+        stock, is_plus = _parse_stock(info.get("stock"))
+        out.append({
+            "id": s["id"],
+            "name": f"{s['street']}, {s['postcode']} {s['city']}",
+            "stock": stock,
+            "stock_plus": is_plus,
+            "is_pickup": s.get("pickupStation", False),
+        })
     return out
 
 
@@ -209,17 +223,22 @@ def check_stores(page: Page, dan: str, location: str) -> list:
 
 def diff_product(old: dict, new: dict) -> list:
     """
-    Vergleicht alten und neuen Zustand für ein Produkt.
-    Returns Liste von Event-Tuples: ('online_new', payload) etc.
+    Vergleicht alten und neuen Zustand. Notification feuert NUR bei:
+      - Online: ausverkauft -> verfügbar
+      - Online: Stock-Anstieg
+      - Filiale: ausverkauft/nicht-getrackt -> verfügbar
+      - Filiale: Stock-Anstieg bei bereits verfügbarer Filiale
+    NICHT bei "verschwunden" oder neuer Filiale im Radius ohne Stock.
     """
     events = []
+    new_available_stores = [s for s in new["stores"] if s["stock"] > 0]
 
     if not old:
         # Erste Erfassung – nur benachrichtigen wenn JETZT verfügbar
         if new["online"]["available"]:
             events.append(("online_new", new["online"]))
-        if new["stores"]:
-            events.append(("store_initial", new["stores"]))
+        if new_available_stores:
+            events.append(("store_initial", new_available_stores))
         return events
 
     # ---- Online ----
@@ -237,19 +256,23 @@ def diff_product(old: dict, new: dict) -> list:
 
     # ---- Filialen ----
     old_stores = {s["id"]: s for s in old.get("stores", [])}
-    new_stores = {s["id"]: s for s in new["stores"]}
 
-    new_avail_stores = [s for sid, s in new_stores.items() if sid not in old_stores]
-    increased_stores = [
-        {"old": old_stores[sid]["stock"], "new": s["stock"], "store": s}
-        for sid, s in new_stores.items()
-        if sid in old_stores and s["stock"] > old_stores[sid]["stock"]
-    ]
+    newly_available = []
+    increased = []
+    for s in new["stores"]:
+        if s["stock"] <= 0:
+            continue
+        old_s = old_stores.get(s["id"])
+        old_st = (old_s or {}).get("stock", 0)
+        if old_st <= 0:
+            newly_available.append(s)
+        elif s["stock"] > old_st:
+            increased.append({"old": old_st, "new": s["stock"], "store": s})
 
-    if new_avail_stores:
-        events.append(("store_new", new_avail_stores))
-    if increased_stores:
-        events.append(("store_increase", increased_stores))
+    if newly_available:
+        events.append(("store_new", newly_available))
+    if increased:
+        events.append(("store_increase", increased))
 
     return events
 
@@ -298,21 +321,30 @@ def build_embed(product_name: str, product_url: str, online: dict,
             "inline": True,
         })
 
-    # Filialen
+    # Filialen – ALLE zeigen, getrennt nach verfügbar/ausverkauft
     if stores:
-        # nach Stockzahl sortieren absteigend, max 10
-        sorted_stores = sorted(stores, key=lambda s: -s["stock"])[:10]
-        lines = []
-        for s in sorted_stores:
-            pickup = " 📦" if s["is_pickup"] else ""
-            stock_label = f"{s['stock']}+" if s.get("stock_plus") else str(s["stock"])
-            lines.append(f"• {s['name']} – **{stock_label} Stück**{pickup}")
-        suffix = "" if len(stores) <= 10 else f"\n_… und {len(stores) - 10} weitere_"
-        fields.append({
-            "name": f"🏪 Filialen verfügbar ({len(stores)})",
-            "value": "\n".join(lines) + suffix,
-            "inline": False,
-        })
+        available = sorted([s for s in stores if s["stock"] > 0], key=lambda s: -s["stock"])
+        sold_out = [s for s in stores if s["stock"] <= 0]
+
+        if available:
+            lines = []
+            for s in available:
+                pickup = " 📦" if s["is_pickup"] else ""
+                stock_label = f"{s['stock']}+" if s.get("stock_plus") else str(s["stock"])
+                lines.append(f"🟢 {s['name']} – **{stock_label} Stück**{pickup}")
+            fields.append({
+                "name": f"Verfügbar ({len(available)})",
+                "value": _truncate_lines(lines, 1024),
+                "inline": False,
+            })
+
+        if sold_out:
+            lines = [f"⚪ {s['name']}" for s in sold_out]
+            fields.append({
+                "name": f"Ausverkauft ({len(sold_out)})",
+                "value": _truncate_lines(lines, 1024),
+                "inline": False,
+            })
 
     embed = {
         "title": title[:256],  # Discord limit
