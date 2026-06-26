@@ -153,6 +153,15 @@ def check_online(page: Page, url: str) -> dict:
     }
 
 
+def _parse_stock(raw) -> tuple[int, bool]:
+    """Rossmann-API gibt '5+' (= 5 oder mehr), '5', '0' usw. zurück.
+    Returns (int, is_plus). Crashed nie."""
+    s = str(raw or "0").strip()
+    is_plus = s.endswith("+")
+    digits = s.rstrip("+")
+    return (int(digits) if digits.isdigit() else 0, is_plus)
+
+
 def check_stores(page: Page, dan: str, location: str) -> list:
     """Fragt die Filial-API ab. Gibt nur Filialen mit stock > 0 zurück."""
     api_url = f"https://www.rossmann.de/storefinder/.rest/store?dan={dan}&q={location}"
@@ -181,12 +190,13 @@ def check_stores(page: Page, dan: str, location: str) -> list:
     out = []
     for s in data.get("store", []):
         for info in s.get("productInfo", []):
-            stock = int(info.get("stock", 0))
+            stock, is_plus = _parse_stock(info.get("stock"))
             if stock > 0:
                 out.append({
                     "id": s["id"],
                     "name": f"{s['street']}, {s['postcode']} {s['city']}",
                     "stock": stock,
+                    "stock_plus": is_plus,
                     "is_pickup": s.get("pickupStation", False),
                 })
                 break
@@ -295,7 +305,8 @@ def build_embed(product_name: str, product_url: str, online: dict,
         lines = []
         for s in sorted_stores:
             pickup = " 📦" if s["is_pickup"] else ""
-            lines.append(f"• {s['name']} – **{s['stock']} Stück**{pickup}")
+            stock_label = f"{s['stock']}+" if s.get("stock_plus") else str(s["stock"])
+            lines.append(f"• {s['name']} – **{stock_label} Stück**{pickup}")
         suffix = "" if len(stores) <= 10 else f"\n_… und {len(stores) - 10} weitere_"
         fields.append({
             "name": f"🏪 Filialen verfügbar ({len(stores)})",
