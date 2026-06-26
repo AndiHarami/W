@@ -117,8 +117,8 @@
       {
         "id": 3189,
         "name": "Senefelderstr. 30, 63322 Rödermark",
-        "stock": 5,
-        "stock_plus": true,
+        "stock": 1,
+        "stock_plus": false,
         "is_pickup": true
       },
       {
