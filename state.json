@@ -47,7 +47,7 @@
       {
         "id": 3120,
         "name": "Friedberger Anlage 1, 60314 Frankfurt am Main",
-        "stock": 1,
+        "stock": 0,
         "stock_plus": false,
         "is_pickup": true
       },
@@ -117,7 +117,7 @@
       {
         "id": 3189,
         "name": "Senefelderstr. 30, 63322 Rödermark",
-        "stock": 1,
+        "stock": 0,
         "stock_plus": false,
         "is_pickup": true
       },
@@ -185,7 +185,7 @@
       {
         "id": 852,
         "name": "Berger Str. 145, 60385 Frankfurt am Main",
-        "stock": 1,
+        "stock": 0,
         "stock_plus": false,
         "is_pickup": false
       },
