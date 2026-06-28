@@ -2,33 +2,301 @@
   "https://www.rossmann.de/de/baby-und-spielzeug-amigo-pokemon-booster-nr-1/p/0820650250170": {
     "online": {
       "available": false,
-      "stock": null,
-      "price": null,
-      "image_url": null,
-      "name": null,
-      "raw_availability": null
+      "stock": 0,
+      "price": "9.99",
+      "image_url": "https://www.rossmann.de/media/og/OG-Image_09112020.jpg?width=1200&height=630&fit=bounds",
+      "name": "Amigo Pokemon Booster Nr. 1",
+      "raw_availability": "https://schema.org/SoldOut"
     },
-    "stores": []
+    "stores": [
+      {
+        "id": 3719,
+        "name": "Frankfurter Str. 48, 63065 Offenbach",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3771,
+        "name": "Berliner Str. 206, 63067 Offenbach",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3607,
+        "name": "Sprendlinger Landstr. 179 B, 63069 Offenbach am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 3454,
+        "name": "Seligenstädter Str. 93, 63073 Offenbach",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 852,
+        "name": "Berger Str. 145, 60385 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3120,
+        "name": "Friedberger Anlage 1, 60314 Frankfurt am Main",
+        "stock": 1,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 1818,
+        "name": "Zeil 41, 60313 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 3851,
+        "name": "Hauptstr. 34, 63303 Dreieich",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 2196,
+        "name": "Elisabeth-Selbert-Allee 19, 63225 Langen",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3809,
+        "name": "Bahnstr. 26, 63225 Langen",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3864,
+        "name": "Hermesstr. 4, 63263 Neu-Isenburg",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 853,
+        "name": "Bruchfeldstr. 49, 60528 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3344,
+        "name": "Am Flughafe, 60549 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 2533,
+        "name": "Mainzer Landstr. 341, 60326 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3912,
+        "name": "Im Hauptbahnhof 1, 60329 Frankfurt",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 3189,
+        "name": "Senefelderstr. 30, 63322 Rödermark",
+        "stock": 1,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 2273,
+        "name": "Hainburgstr. 47 a, 63110 Rodgau",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 1755,
+        "name": "Lagerstr. 4, 64807 Dieburg",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3575,
+        "name": "Theodor-Clausen-Str. 4, 64380 Roßdorf",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      }
+    ]
   },
   "https://www.rossmann.de/de/ideenwelt-amigo-pokemon-tcg-mini-tin/p/4007396203073": {
     "online": {
       "available": false,
-      "stock": null,
-      "price": null,
-      "image_url": null,
-      "name": null,
-      "raw_availability": null
+      "stock": 0,
+      "price": "11.99",
+      "image_url": "https://www.rossmann.de/media/og/OG-Image_09112020.jpg?width=1200&height=630&fit=bounds",
+      "name": "Amigo Pokémon TCG Mini Tin",
+      "raw_availability": "https://schema.org/SoldOut"
     },
-    "stores": []
+    "stores": [
+      {
+        "id": 3719,
+        "name": "Frankfurter Str. 48, 63065 Offenbach",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3771,
+        "name": "Berliner Str. 206, 63067 Offenbach",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3607,
+        "name": "Sprendlinger Landstr. 179 B, 63069 Offenbach am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 3454,
+        "name": "Seligenstädter Str. 93, 63073 Offenbach",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 852,
+        "name": "Berger Str. 145, 60385 Frankfurt am Main",
+        "stock": 1,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3120,
+        "name": "Friedberger Anlage 1, 60314 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 1818,
+        "name": "Zeil 41, 60313 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 3851,
+        "name": "Hauptstr. 34, 63303 Dreieich",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 2196,
+        "name": "Elisabeth-Selbert-Allee 19, 63225 Langen",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3809,
+        "name": "Bahnstr. 26, 63225 Langen",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3864,
+        "name": "Hermesstr. 4, 63263 Neu-Isenburg",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 853,
+        "name": "Bruchfeldstr. 49, 60528 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3344,
+        "name": "Am Flughafe, 60549 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 2533,
+        "name": "Mainzer Landstr. 341, 60326 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3912,
+        "name": "Im Hauptbahnhof 1, 60329 Frankfurt",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 3189,
+        "name": "Senefelderstr. 30, 63322 Rödermark",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 2273,
+        "name": "Hainburgstr. 47 a, 63110 Rodgau",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 1755,
+        "name": "Lagerstr. 4, 64807 Dieburg",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3575,
+        "name": "Theodor-Clausen-Str. 4, 64380 Roßdorf",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      }
+    ]
   },
   "https://www.rossmann.de/de/baby-und-spielzeug-amigo-pokemon-boosterpack-karmesin-und-purpur---ewige-rivalen/p/0196214110779": {
     "online": {
       "available": false,
-      "stock": null,
-      "price": null,
-      "image_url": null,
-      "name": null,
-      "raw_availability": null
+      "stock": 0,
+      "price": "5.99",
+      "image_url": "https://www.rossmann.de/media/og/OG-Image_09112020.jpg?width=1200&height=630&fit=bounds",
+      "name": "Amigo Pokémon Boosterpack Karmesin & Purpur - Ewige Rivalen",
+      "raw_availability": "https://schema.org/SoldOut"
     },
     "stores": []
   }
