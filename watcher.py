@@ -40,7 +40,7 @@ PRODUCTS = [
     },
 ]
 
-LOCATIONS = ["offenbach", "dreieich", "rödermark"]
+LOCATIONS = ["offenbach", "dreieich", "rödermark", "wiesbaden"]
 
 DISCORD_WEBHOOK = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
 
