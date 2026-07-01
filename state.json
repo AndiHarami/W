@@ -1,12 +1,12 @@
 {
   "https://www.rossmann.de/de/baby-und-spielzeug-amigo-pokemon-booster-nr-1/p/0820650250170": {
     "online": {
-      "available": true,
-      "stock": 18,
+      "available": false,
+      "stock": 0,
       "price": "9.99",
       "image_url": "https://www.rossmann.de/media/og/OG-Image_09112020.jpg?width=1200&height=630&fit=bounds",
       "name": "Amigo Pokemon Booster Nr. 1",
-      "raw_availability": "https://schema.org/InStock"
+      "raw_availability": "https://schema.org/SoldOut"
     },
     "stores": [
       {
