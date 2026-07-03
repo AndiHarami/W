@@ -33,8 +33,8 @@
       {
         "id": 3454,
         "name": "Seligenstädter Str. 93, 63073 Offenbach",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": false
       },
       {
