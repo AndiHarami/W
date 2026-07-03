@@ -166,8 +166,8 @@
       {
         "id": 3070,
         "name": "Bahnhofsplatz 3, 65189 Wiesbaden",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": false
       },
       {
