@@ -26,8 +26,8 @@
       {
         "id": 3607,
         "name": "Sprendlinger Landstr. 179 B, 63069 Offenbach am Main",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": true
       },
       {
