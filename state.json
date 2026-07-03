@@ -138,8 +138,8 @@
       {
         "id": 3575,
         "name": "Theodor-Clausen-Str. 4, 64380 Roßdorf",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": false
       },
       {
