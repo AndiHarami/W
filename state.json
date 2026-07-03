@@ -82,8 +82,8 @@
       {
         "id": 3864,
         "name": "Hermesstr. 4, 63263 Neu-Isenburg",
-        "stock": 5,
-        "stock_plus": true,
+        "stock": 0,
+        "stock_plus": false,
         "is_pickup": false
       },
       {
