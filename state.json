@@ -131,8 +131,8 @@
       {
         "id": 1755,
         "name": "Lagerstr. 4, 64807 Dieburg",
-        "stock": 5,
-        "stock_plus": true,
+        "stock": 3,
+        "stock_plus": false,
         "is_pickup": false
       },
       {
