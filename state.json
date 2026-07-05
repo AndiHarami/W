@@ -418,11 +418,11 @@
   "https://www.rossmann.de/de/baby-und-spielzeug-amigo-pokemon-boosterpack-karmesin-und-purpur---ewige-rivalen/p/0196214110779": {
     "online": {
       "available": false,
-      "stock": 0,
+      "stock": null,
       "price": "5.99",
       "image_url": "https://www.rossmann.de/media/og/OG-Image_09112020.jpg?width=1200&height=630&fit=bounds",
       "name": "Amigo Pokémon Boosterpack Karmesin & Purpur - Ewige Rivalen",
-      "raw_availability": "https://schema.org/SoldOut"
+      "raw_availability": "https://schema.org/LimitedAvailability"
     },
     "stores": []
   }
