@@ -12,8 +12,8 @@
       {
         "id": 3719,
         "name": "Frankfurter Str. 48, 63065 Offenbach",
-        "stock": 5,
-        "stock_plus": true,
+        "stock": 3,
+        "stock_plus": false,
         "is_pickup": false
       },
       {
