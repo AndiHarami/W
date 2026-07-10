@@ -8,6 +8,7 @@ Checkt regelmäßig eine Liste von Rossmann-Produkten auf:
 Bei Neu-Verfügbarkeit oder Stock-Steigerung wird eine Discord-Nachricht
 mit Produktbild, Preis und Filialliste gesendet.
 """
+import hashlib
 import json
 import os
 import sys
@@ -45,6 +46,20 @@ DRY_RUN = "--dry-run" in sys.argv
 
 def log(msg: str) -> None:
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}", flush=True)
+
+
+def _key(url: str) -> str:
+    """Kurzer Hash-Schlüssel damit state.json keine Klartext-URLs enthält."""
+    return hashlib.sha256(url.encode()).hexdigest()[:12]
+
+
+def _strip_transient(product_state: dict) -> dict:
+    """Entfernt Klartext-Felder aus dem online-Block bevor state gespeichert wird."""
+    online = {
+        k: v for k, v in product_state["online"].items()
+        if k not in ("name", "image_url")
+    }
+    return {"online": online, "stores": product_state["stores"]}
 
 
 def load_state() -> dict:
@@ -420,8 +435,9 @@ def main() -> int:
                     log(f"  online: ❌ {online.get('raw_availability', '?')}")
                 log(f"  filialen mit stock: {len(stores_all)}")
 
-                # Diff & Notification
-                old_product_state = old_state.get(product["url"])
+                # Diff & Notification (Hash-Schlüssel statt URL)
+                pk = _key(product["url"])
+                old_product_state = old_state.get(pk)
                 events = diff_product(old_product_state, product_state)
 
                 if events:
@@ -437,13 +453,14 @@ def main() -> int:
                 else:
                     log("  (keine Änderung)")
 
-                new_state[product["url"]] = product_state
+                new_state[pk] = _strip_transient(product_state)
 
             except Exception as e:
                 log(f"  ❌ FEHLER: {type(e).__name__}: {e}")
                 # alten State behalten falls vorhanden – verhindert false positives
-                if old_state.get(product["url"]):
-                    new_state[product["url"]] = old_state[product["url"]]
+                pk = _key(product["url"])
+                if old_state.get(pk):
+                    new_state[pk] = old_state[pk]
 
         browser.close()
 
