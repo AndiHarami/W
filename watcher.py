@@ -22,25 +22,8 @@ from playwright.sync_api import Page, sync_playwright
 # KONFIGURATION
 # =============================================================
 
-PRODUCTS = [
-    {
-        "name": "Amigo Pokemon Booster Nr. 1",
-        "url": "https://www.rossmann.de/de/baby-und-spielzeug-amigo-pokemon-booster-nr-1/p/0820650250170",
-        "dan": "516372",
-    },
-    {
-        "name": "Ideenwelt Amigo Pokemon TCG Mini-Tin",
-        "url": "https://www.rossmann.de/de/ideenwelt-amigo-pokemon-tcg-mini-tin/p/4007396203073",
-        "dan": "084175",
-    },
-    {
-        "name": "Amigo Boosterpack Karmesin & Purpur – Ewige Rivalen",
-        "url": "https://www.rossmann.de/de/baby-und-spielzeug-amigo-pokemon-boosterpack-karmesin-und-purpur---ewige-rivalen/p/0196214110779",
-        "dan": None,  # Produkt nur online, kein Filial-Check möglich
-    },
-]
-
-LOCATIONS = ["offenbach", "dreieich", "rödermark", "wiesbaden"]
+PRODUCTS = json.loads(os.environ.get("PRODUCTS_JSON", "[]"))
+LOCATIONS = json.loads(os.environ.get("LOCATIONS_JSON", "[]"))
 
 DISCORD_WEBHOOK = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
 
@@ -386,8 +369,12 @@ def send_discord(embed: dict) -> None:
 def main() -> int:
     if not DISCORD_WEBHOOK and not DRY_RUN:
         log("❌ DISCORD_WEBHOOK_URL Umgebungsvariable ist leer.")
-        log("   Lokal: export DISCORD_WEBHOOK_URL='https://discord.com/api/webhooks/...'")
-        log("   Oder zum Testen ohne Senden:  python3 watcher.py --dry-run")
+        return 1
+    if not PRODUCTS:
+        log("❌ PRODUCTS_JSON Umgebungsvariable fehlt oder leer.")
+        return 1
+    if not LOCATIONS:
+        log("❌ LOCATIONS_JSON Umgebungsvariable fehlt oder leer.")
         return 1
 
     log(f"🚀 Rossmann Watcher startet ({len(PRODUCTS)} Produkte, Orte: {LOCATIONS})")

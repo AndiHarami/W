@@ -46,6 +46,8 @@ jobs:
       - name: Run watcher
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          PRODUCTS_JSON: ${{ secrets.PRODUCTS_JSON }}
+          LOCATIONS_JSON: ${{ secrets.LOCATIONS_JSON }}
         run: python watcher.py
 
       - name: Commit state if changed
