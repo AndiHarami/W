@@ -2,9 +2,9 @@
   "5d1e132bcf5e": {
     "online": {
       "available": false,
-      "stock": 0,
-      "price": "9.99",
-      "raw_availability": "https://schema.org/SoldOut"
+      "stock": null,
+      "price": null,
+      "raw_availability": null
     },
     "stores": [
       {
@@ -414,9 +414,9 @@
   "52c0acb4a5aa": {
     "online": {
       "available": false,
-      "stock": 0,
-      "price": "5.99",
-      "raw_availability": "https://schema.org/SoldOut"
+      "stock": null,
+      "price": null,
+      "raw_availability": null
     },
     "stores": []
   }
