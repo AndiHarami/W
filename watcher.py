@@ -1,13 +1,4 @@
-"""
-Rossmann Pokemon Watcher
-
-Checkt regelmäßig eine Liste von Rossmann-Produkten auf:
-  - Online-Verfügbarkeit (schema.org availability + Stock)
-  - Filial-Verfügbarkeit (storefinder API, mehrere PLZ/Städte)
-
-Bei Neu-Verfügbarkeit oder Stock-Steigerung wird eine Discord-Nachricht
-mit Produktbild, Preis und Filialliste gesendet.
-"""
+"""watcher"""
 import hashlib
 import json
 import os
@@ -112,7 +103,6 @@ def check_online(page: Page, url: str) -> dict:
     # Echter Produktname (statt aus unserer Config)
     title_meta = page.locator('meta[property="og:title"]').first
     real_name = title_meta.get_attribute("content") if title_meta.count() > 0 else None
-    # "X online kaufen | rossmann.de" -> "X"
     if real_name and "|" in real_name:
         real_name = real_name.split("|")[0].strip()
     if real_name and real_name.endswith(" online kaufen"):
@@ -167,8 +157,7 @@ def _truncate_lines(lines: list, max_chars: int) -> str:
 
 
 def _parse_stock(raw) -> tuple[int, bool]:
-    """Rossmann-API gibt '5+' (= 5 oder mehr), '5', '0' usw. zurück.
-    Returns (int, is_plus). Crashed nie."""
+    """Parse stock string like '5+' or '0'. Returns (int, is_plus)."""
     s = str(raw or "0").strip()
     is_plus = s.endswith("+")
     digits = s.rstrip("+")
@@ -176,8 +165,9 @@ def _parse_stock(raw) -> tuple[int, bool]:
 
 
 def check_stores(page: Page, dan: str, location: str) -> list:
-    """Fragt die Filial-API ab. Gibt nur Filialen mit stock > 0 zurück."""
-    api_url = f"https://www.rossmann.de/storefinder/.rest/store?dan={dan}&q={location}"
+    """Query store API. Returns list of stores with stock info."""
+    tmpl = os.environ.get("STORE_API_URL_TEMPLATE", "")
+    api_url = tmpl.format(dan=dan, location=location)
     js = """
     async (url) => {
         const r = await fetch(url, {
@@ -191,13 +181,13 @@ def check_stores(page: Page, dan: str, location: str) -> list:
     """
     result = page.evaluate(js, api_url)
     if result["status"] != 200:
-        log(f"    ⚠️ Filial-API Status {result['status']} für q={location}")
+        log(f"  api {result['status']}")
         return []
 
     try:
         data = json.loads(result["text"])
     except json.JSONDecodeError:
-        log(f"    ⚠️ Filial-API: keine valide JSON-Response")
+        log(f"  api json err")
         return []
 
     out = []
@@ -350,7 +340,7 @@ def build_embed(product_name: str, product_url: str, online: dict,
         "color": color,
         "fields": fields,
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "footer": {"text": "Rossmann Pokemon Watcher"},
+        "footer": {"text": "watcher"},
     }
     if online.get("image_url"):
         embed["thumbnail"] = {"url": online["image_url"]}
@@ -392,7 +382,7 @@ def main() -> int:
         log("❌ LOCATIONS_JSON Umgebungsvariable fehlt oder leer.")
         return 1
 
-    log(f"🚀 Rossmann Watcher startet ({len(PRODUCTS)} Produkte, Orte: {LOCATIONS})")
+    log(f"start ({len(PRODUCTS)} items)")
     if DRY_RUN:
         log("   (DRY-RUN-Modus – Discord-Nachrichten werden nur ausgegeben)")
 
@@ -408,8 +398,8 @@ def main() -> int:
         )
         page = context.new_page()
 
-        for product in PRODUCTS:
-            log(f"\n→ {product['name']}")
+        for idx, product in enumerate(PRODUCTS):
+            log(f"item {idx}")
             try:
                 online = check_online(page, product["url"])
 
@@ -427,13 +417,9 @@ def main() -> int:
 
                 product_state = {"online": online, "stores": stores_all}
 
-                # Status loggen
-                if online["available"]:
-                    stock = online["stock"] or "?"
-                    log(f"  online: ✅ {stock} Stück")
-                else:
-                    log(f"  online: ❌ {online.get('raw_availability', '?')}")
-                log(f"  filialen mit stock: {len(stores_all)}")
+                # Status
+                on_ok = 1 if online["available"] else 0
+                log(f"  on={on_ok} stores={len(stores_all)}")
 
                 # Diff & Notification (Hash-Schlüssel statt URL)
                 pk = _key(product["url"])
@@ -441,7 +427,7 @@ def main() -> int:
                 events = diff_product(old_product_state, product_state)
 
                 if events:
-                    log(f"  📡 Events: {[e[0] for e in events]}")
+                    log(f"  ev {len(events)}")
                     embed = build_embed(
                         online.get("name") or product["name"],
                         product["url"],
@@ -451,12 +437,12 @@ def main() -> int:
                     )
                     send_discord(embed)
                 else:
-                    log("  (keine Änderung)")
+                    log("  ok")
 
                 new_state[pk] = _strip_transient(product_state)
 
             except Exception as e:
-                log(f"  ❌ FEHLER: {type(e).__name__}: {e}")
+                log(f"  err {type(e).__name__}")
                 # alten State behalten falls vorhanden – verhindert false positives
                 pk = _key(product["url"])
                 if old_state.get(pk):
@@ -465,7 +451,7 @@ def main() -> int:
         browser.close()
 
     save_state(new_state)
-    log("\n✅ Fertig.")
+    log("done")
     return 0
 
 
