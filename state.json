@@ -59,8 +59,8 @@
       {
         "id": 3851,
         "name": "Hauptstr. 34, 63303 Dreieich",
-        "stock": 5,
-        "stock_plus": true,
+        "stock": 0,
+        "stock_plus": false,
         "is_pickup": false
       },
       {
