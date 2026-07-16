@@ -2,9 +2,9 @@
   "5d1e132bcf5e": {
     "online": {
       "available": false,
-      "stock": null,
-      "price": null,
-      "raw_availability": null
+      "stock": 0,
+      "price": "9.99",
+      "raw_availability": "https://schema.org/SoldOut"
     },
     "stores": [
       {
@@ -115,8 +115,8 @@
       {
         "id": 3189,
         "name": "Senefelderstr. 30, 63322 Rödermark",
-        "stock": 5,
-        "stock_plus": true,
+        "stock": 3,
+        "stock_plus": false,
         "is_pickup": true
       },
       {
@@ -208,9 +208,9 @@
   "993e4a3aa28d": {
     "online": {
       "available": false,
-      "stock": null,
-      "price": null,
-      "raw_availability": null
+      "stock": 0,
+      "price": "11.99",
+      "raw_availability": "https://schema.org/SoldOut"
     },
     "stores": [
       {
@@ -414,9 +414,9 @@
   "52c0acb4a5aa": {
     "online": {
       "available": false,
-      "stock": null,
-      "price": null,
-      "raw_availability": null
+      "stock": 0,
+      "price": "5.99",
+      "raw_availability": "https://schema.org/SoldOut"
     },
     "stores": []
   }
