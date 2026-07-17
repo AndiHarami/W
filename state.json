@@ -73,8 +73,8 @@
       {
         "id": 3809,
         "name": "Bahnstr. 26, 63225 Langen",
-        "stock": 5,
-        "stock_plus": true,
+        "stock": 2,
+        "stock_plus": false,
         "is_pickup": false
       },
       {
