@@ -413,10 +413,10 @@
   },
   "52c0acb4a5aa": {
     "online": {
-      "available": false,
-      "stock": 0,
+      "available": true,
+      "stock": 18,
       "price": "5.99",
-      "raw_availability": "https://schema.org/SoldOut"
+      "raw_availability": "https://schema.org/InStock"
     },
     "stores": []
   }
