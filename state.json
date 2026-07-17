@@ -185,8 +185,8 @@
       {
         "id": 4020,
         "name": "Äppelallee 69, 65203 Wiesbaden",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": false
       },
       {
