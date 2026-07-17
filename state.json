@@ -414,9 +414,9 @@
   "52c0acb4a5aa": {
     "online": {
       "available": false,
-      "stock": null,
+      "stock": 0,
       "price": "5.99",
-      "raw_availability": "https://schema.org/LimitedAvailability"
+      "raw_availability": "https://schema.org/SoldOut"
     },
     "stores": []
   }
