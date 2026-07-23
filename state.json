@@ -143,8 +143,8 @@
       {
         "id": 3495,
         "name": "Kirchgasse 72-74, 65183 Wiesbaden",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": true
       },
       {
