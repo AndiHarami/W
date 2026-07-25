@@ -15,6 +15,13 @@
         "is_pickup": false
       },
       {
+        "id": 2430,
+        "name": "Große Marktstr. 12, 63065 Offenbach",
+        "stock": 5,
+        "stock_plus": true,
+        "is_pickup": false
+      },
+      {
         "id": 3771,
         "name": "Berliner Str. 206, 63067 Offenbach",
         "stock": 0,
@@ -218,6 +225,13 @@
         "name": "Frankfurter Str. 48, 63065 Offenbach",
         "stock": 0,
         "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 2430,
+        "name": "Große Marktstr. 12, 63065 Offenbach",
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": false
       },
       {
