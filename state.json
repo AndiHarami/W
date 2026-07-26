@@ -19,7 +19,7 @@
         "name": "Große Marktstr. 12, 63065 Offenbach",
         "stock": 5,
         "stock_plus": true,
-        "is_pickup": false
+        "is_pickup": true
       },
       {
         "id": 3771,
@@ -232,7 +232,7 @@
         "name": "Große Marktstr. 12, 63065 Offenbach",
         "stock": 0,
         "stock_plus": false,
-        "is_pickup": false
+        "is_pickup": true
       },
       {
         "id": 3771,
