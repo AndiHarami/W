@@ -17,7 +17,7 @@
       {
         "id": 2430,
         "name": "Große Marktstr. 12, 63065 Offenbach",
-        "stock": 0,
+        "stock": 3,
         "stock_plus": false,
         "is_pickup": true
       },
@@ -52,7 +52,7 @@
       {
         "id": 3120,
         "name": "Friedberger Anlage 1, 60314 Frankfurt am Main",
-        "stock": 0,
+        "stock": 1,
         "stock_plus": false,
         "is_pickup": true
       },
@@ -66,8 +66,8 @@
       {
         "id": 3851,
         "name": "Hauptstr. 34, 63303 Dreieich",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": false
       },
       {
@@ -150,8 +150,8 @@
       {
         "id": 3495,
         "name": "Kirchgasse 72-74, 65183 Wiesbaden",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": true
       },
       {
@@ -192,8 +192,8 @@
       {
         "id": 4020,
         "name": "Äppelallee 69, 65203 Wiesbaden",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": false
       },
       {
@@ -258,7 +258,7 @@
       {
         "id": 852,
         "name": "Berger Str. 145, 60385 Frankfurt am Main",
-        "stock": 0,
+        "stock": 1,
         "stock_plus": false,
         "is_pickup": false
       },
