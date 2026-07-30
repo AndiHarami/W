@@ -80,7 +80,7 @@
       {
         "id": 3809,
         "name": "Bahnstr. 26, 63225 Langen",
-        "stock": 0,
+        "stock": 4,
         "stock_plus": false,
         "is_pickup": false
       },
@@ -122,8 +122,8 @@
       {
         "id": 3189,
         "name": "Senefelderstr. 30, 63322 Rödermark",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": true
       },
       {
