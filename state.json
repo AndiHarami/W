@@ -117,7 +117,7 @@
         "name": "Im Hauptbahnhof 1, 60329 Frankfurt",
         "stock": 0,
         "stock_plus": false,
-        "is_pickup": true
+        "is_pickup": false
       },
       {
         "id": 3189,
@@ -330,7 +330,7 @@
         "name": "Im Hauptbahnhof 1, 60329 Frankfurt",
         "stock": 0,
         "stock_plus": false,
-        "is_pickup": true
+        "is_pickup": false
       },
       {
         "id": 3189,
