@@ -185,8 +185,8 @@
       {
         "id": 1505,
         "name": "Straße der Republik 19 a, 65203 Wiesbaden",
-        "stock": 0,
-        "stock_plus": false,
+        "stock": 5,
+        "stock_plus": true,
         "is_pickup": false
       },
       {
