@@ -129,8 +129,8 @@
       {
         "id": 2273,
         "name": "Hainburgstr. 47 a, 63110 Rodgau",
-        "stock": 5,
-        "stock_plus": true,
+        "stock": 0,
+        "stock_plus": false,
         "is_pickup": false
       },
       {
