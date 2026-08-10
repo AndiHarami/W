@@ -118,6 +118,90 @@
         "stock": 0,
         "stock_plus": false,
         "is_pickup": false
+      },
+      {
+        "id": 3189,
+        "name": "Senefelderstr. 30, 63322 Rödermark",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 2273,
+        "name": "Hainburgstr. 47 a, 63110 Rodgau",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 1755,
+        "name": "Lagerstr. 4, 64807 Dieburg",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3575,
+        "name": "Theodor-Clausen-Str. 4, 64380 Roßdorf",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3495,
+        "name": "Kirchgasse 72-74, 65183 Wiesbaden",
+        "stock": 5,
+        "stock_plus": true,
+        "is_pickup": true
+      },
+      {
+        "id": 1620,
+        "name": "Friedrichstr. 43, 65185 Wiesbaden",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 2820,
+        "name": "Bahnhofsplatz 1, 65189 Wiesbaden",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3070,
+        "name": "Bahnhofsplatz 3, 65189 Wiesbaden",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 1972,
+        "name": "Kurt-Schumacher-Ring 2-4, 65197 Wiesbaden",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 1505,
+        "name": "Straße der Republik 19 a, 65203 Wiesbaden",
+        "stock": 4,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 4020,
+        "name": "Äppelallee 69, 65203 Wiesbaden",
+        "stock": 5,
+        "stock_plus": true,
+        "is_pickup": false
+      },
+      {
+        "id": 3293,
+        "name": "Alte Markthalle 4, 55120 Mainz ",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
       }
     ]
   },
