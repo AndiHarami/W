@@ -73,8 +73,8 @@
       {
         "id": 2196,
         "name": "Elisabeth-Selbert-Allee 19, 63225 Langen",
-        "stock": 5,
-        "stock_plus": true,
+        "stock": 4,
+        "stock_plus": false,
         "is_pickup": false
       },
       {
