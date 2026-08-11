@@ -120,34 +120,6 @@
         "is_pickup": false
       },
       {
-        "id": 3189,
-        "name": "Senefelderstr. 30, 63322 Rödermark",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": true
-      },
-      {
-        "id": 2273,
-        "name": "Hainburgstr. 47 a, 63110 Rodgau",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
-        "id": 1755,
-        "name": "Lagerstr. 4, 64807 Dieburg",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
-        "id": 3575,
-        "name": "Theodor-Clausen-Str. 4, 64380 Roßdorf",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
         "id": 3495,
         "name": "Kirchgasse 72-74, 65183 Wiesbaden",
         "stock": 5,
