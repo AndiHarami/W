@@ -24,7 +24,7 @@
       {
         "id": 3771,
         "name": "Berliner Str. 206, 63067 Offenbach",
-        "stock": 3,
+        "stock": 0,
         "stock_plus": false,
         "is_pickup": false
       },
@@ -52,7 +52,7 @@
       {
         "id": 3120,
         "name": "Friedberger Anlage 1, 60314 Frankfurt am Main",
-        "stock": 1,
+        "stock": 0,
         "stock_plus": false,
         "is_pickup": true
       },
@@ -150,7 +150,7 @@
       {
         "id": 3495,
         "name": "Kirchgasse 72-74, 65183 Wiesbaden",
-        "stock": 3,
+        "stock": 0,
         "stock_plus": false,
         "is_pickup": true
       },
