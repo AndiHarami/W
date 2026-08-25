@@ -212,7 +212,64 @@
       "price": null,
       "raw_availability": null
     },
-    "stores": []
+    "stores": [
+      {
+        "id": 3719,
+        "name": "Frankfurter Str. 48, 63065 Offenbach am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 2430,
+        "name": "Große Marktstr. 12, 63065 Offenbach am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 3771,
+        "name": "Berliner Str. 206, 63067 Offenbach am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3607,
+        "name": "Sprendlinger Landstr. 179 B, 63069 Offenbach am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 3454,
+        "name": "Seligenstädter Str. 93, 63073 Offenbach am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 852,
+        "name": "Berger Str. 145, 60385 Frankfurt am Main",
+        "stock": 1,
+        "stock_plus": false,
+        "is_pickup": false
+      },
+      {
+        "id": 3120,
+        "name": "Friedberger Anlage 1, 60314 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      },
+      {
+        "id": 1818,
+        "name": "Zeil 41, 60313 Frankfurt am Main",
+        "stock": 0,
+        "stock_plus": false,
+        "is_pickup": true
+      }
+    ]
   },
   "52c0acb4a5aa": {
     "online": {
