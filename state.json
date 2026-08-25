@@ -9,21 +9,21 @@
     "stores": [
       {
         "id": 3719,
-        "name": "Frankfurter Str. 48, 63065 Offenbach",
+        "name": "Frankfurter Str. 48, 63065 Offenbach am Main",
         "stock": 0,
         "stock_plus": false,
         "is_pickup": false
       },
       {
         "id": 2430,
-        "name": "Große Marktstr. 12, 63065 Offenbach",
+        "name": "Große Marktstr. 12, 63065 Offenbach am Main",
         "stock": 0,
         "stock_plus": false,
         "is_pickup": true
       },
       {
         "id": 3771,
-        "name": "Berliner Str. 206, 63067 Offenbach",
+        "name": "Berliner Str. 206, 63067 Offenbach am Main",
         "stock": 0,
         "stock_plus": false,
         "is_pickup": false
@@ -37,7 +37,7 @@
       },
       {
         "id": 3454,
-        "name": "Seligenstädter Str. 93, 63073 Offenbach",
+        "name": "Seligenstädter Str. 93, 63073 Offenbach am Main",
         "stock": 0,
         "stock_plus": false,
         "is_pickup": false
@@ -114,7 +114,7 @@
       },
       {
         "id": 3912,
-        "name": "Im Hauptbahnhof 1, 60329 Frankfurt",
+        "name": "Im Hauptbahnhof 1, 60329 Frankfurt am Main",
         "stock": 0,
         "stock_plus": false,
         "is_pickup": false
