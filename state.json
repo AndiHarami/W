@@ -6,71 +6,7 @@
       "price": null,
       "raw_availability": null
     },
-    "stores": [
-      {
-        "id": 3189,
-        "name": "Senefelderstr. 30, 63322 Rödermark",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": true
-      },
-      {
-        "id": 2273,
-        "name": "Hainburgstr. 47 a, 63110 Rodgau",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
-        "id": 1755,
-        "name": "Lagerstr. 4, 64807 Dieburg",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
-        "id": 2196,
-        "name": "Elisabeth-Selbert-Allee 19, 63225 Langen (Hessen)",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
-        "id": 3809,
-        "name": "Bahnstr. 26, 63225 Langen (Hessen)",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
-        "id": 3851,
-        "name": "Hauptstr. 34, 63303 Dreieich",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
-        "id": 3575,
-        "name": "Theodor-Clausen-Str. 4, 64380 Roßdorf",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
-        "id": 3864,
-        "name": "Hermesstr. 4, 63263 Neu-Isenburg",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      },
-      {
-        "id": 3454,
-        "name": "Seligenstädter Str. 93, 63073 Offenbach am Main",
-        "stock": 0,
-        "stock_plus": false,
-        "is_pickup": false
-      }
-    ]
+    "stores": []
   },
   "993e4a3aa28d": {
     "online": {
